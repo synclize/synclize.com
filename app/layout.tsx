@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import Image from "next/image";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -27,6 +28,22 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
+        <div className="container mx-auto">
+          <div className="header bg-black p-4 flex justify-between items-center w-full">
+            <div className="logo">
+              <Image
+                src="/logo.png"
+                alt="Next.js logo"
+                width={180}
+                height={20}
+                priority
+              />
+            </div>
+            <div className="menu">
+              <button className="btn border px-8 py-2 rounded-full cursor-pointer">Let's Talk</button>
+            </div>
+          </div>
+        </div>
         {children}
       </body>
     </html>
